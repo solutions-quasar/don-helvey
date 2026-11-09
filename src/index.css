@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    color: #10283F;
+    background-color: #FAFBFD;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #DFEFF9;
+    color: #10283F;
+  }
+}
+
+/* Custom premium utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, #C4A46A 0%, #D9C293 50%, #AB8749 100%);
+}
+
+.gradient-navy {
+  background: linear-gradient(135deg, #10283F 0%, #17334F 60%, #1E3F65 100%);
+}
+
+.gradient-forest {
+  background: linear-gradient(135deg, #1B5E91 0%, #164C76 100%);
+}
+
+/* Glassmorphism */
+.glass-header {
+  background: rgba(250, 251, 253, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
