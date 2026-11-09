@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Phone, ShieldCheck, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { X, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { SITE_METADATA } from '../data/content';
 import { ContactFormData } from '../types';
 import { submitContactForm, SubmissionResult } from '../utils/security';
@@ -39,13 +39,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     const result = await submitContactForm(formData);
     setLoading(false);
     setSubmissionStatus(result);
-
-    if (result.success && !result.isBotRejected) {
-      // Clear fields on successful human submission
-      setTimeout(() => {
-        // Keep message visible for user confirmation
-      }, 500);
-    }
   };
 
   const handleReset = () => {
@@ -63,26 +56,22 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-fadeIn">
+    <div className="fixed inset-0 z-50 bg-navy-950/75 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn">
       
-      {/* Modal Card */}
-      <div 
-        className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-navy-100 overflow-hidden my-8"
+      {/* Compact Modal Card */}
+      <div
+        className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-navy-100 overflow-hidden"
         role="dialog"
         aria-modal="true"
       >
-        {/* Modal Top Header Bar */}
-        <div className="bg-navy-900 text-white p-5 sm:p-6 flex items-start justify-between">
+        {/* Compact Header */}
+        <div className="bg-navy-900 text-white px-5 py-4 flex items-center justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Assessment Request & Inquiry</span>
-            </div>
-            <h3 className="font-serif text-2xl font-bold text-white">
-              Connect With Don Helvey
+            <h3 className="font-serif text-xl font-bold text-white leading-tight">
+              Request a Callback
             </h3>
-            <p className="text-xs text-navy-200 mt-1">
-              Speak directly with a 30-year Georgia real estate and mold specialist.
+            <p className="text-xs text-navy-200 mt-0.5">
+              Direct response from Don Helvey
             </p>
           </div>
 
@@ -95,57 +84,41 @@ export const ContactModal: React.FC<ContactModalProps> = ({
           </button>
         </div>
 
-        {/* Content Body */}
-        <div className="p-5 sm:p-7">
-          
+        {/* Form Body */}
+        <div className="p-5">
           {submissionStatus ? (
-            /* App-Native Confirmation State */
-            <div className={`p-6 rounded-xl border text-center ${
-              submissionStatus.success 
-                ? 'bg-forest-50/70 border-forest-200 text-forest-950' 
-                : 'bg-red-50 border-red-200 text-red-900'
-            }`}>
+            <div
+              className={`p-5 rounded-xl border text-center ${
+                submissionStatus.success
+                  ? 'bg-forest-50 border-forest-200 text-navy-900'
+                  : 'bg-red-50 border-red-200 text-red-900'
+              }`}
+            >
               {submissionStatus.success ? (
                 <>
-                  <div className="w-14 h-14 rounded-full bg-forest-600 text-white flex items-center justify-center mx-auto mb-4 shadow-md">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h4 className="font-serif text-2xl font-bold text-navy-900 mb-2">
-                    Inquiry Received
+                  <CheckCircle2 className="w-10 h-10 text-forest-600 mx-auto mb-2.5" />
+                  <h4 className="font-serif text-xl font-bold text-navy-900 mb-1.5">
+                    Request Received
                   </h4>
-                  <p className="text-sm text-navy-700 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-navy-700 leading-relaxed mb-4">
                     {submissionStatus.message}
                   </p>
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a
-                      href={`tel:${SITE_METADATA.rawPhone}`}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-forest-600 text-white text-xs font-semibold shadow"
-                    >
-                      <Phone className="w-4 h-4 text-gold-300" />
-                      <span>Call Don: {SITE_METADATA.phone}</span>
-                    </a>
-                    <button
-                      onClick={onClose}
-                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-warm border border-navy-200 text-navy-800 text-xs font-semibold hover:bg-lightgray"
-                    >
-                      Done
-                    </button>
-                  </div>
+                  <button
+                    onClick={onClose}
+                    className="w-full py-2.5 rounded-xl bg-navy-900 text-white text-xs font-semibold"
+                  >
+                    Done
+                  </button>
                 </>
               ) : (
                 <>
-                  <div className="w-14 h-14 rounded-full bg-red-100 text-red-700 flex items-center justify-center mx-auto mb-4">
-                    <AlertCircle className="w-8 h-8" />
-                  </div>
-                  <h4 className="font-serif text-xl font-bold text-red-950 mb-2">
-                    Notice
-                  </h4>
-                  <p className="text-sm text-red-800 leading-relaxed mb-6">
+                  <AlertCircle className="w-10 h-10 text-red-600 mx-auto mb-2.5" />
+                  <p className="text-xs sm:text-sm text-red-800 mb-4">
                     {submissionStatus.message}
                   </p>
                   <button
                     onClick={handleReset}
-                    className="px-5 py-2.5 rounded-xl bg-navy-900 text-white text-xs font-semibold"
+                    className="px-5 py-2 rounded-xl bg-navy-900 text-white text-xs font-semibold"
                   >
                     Try Again
                   </button>
@@ -153,8 +126,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               )}
             </div>
           ) : (
-            /* Contact Form */
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3.5">
               
               {/* Honeypot Field (Anti-Spam Bot Trap) */}
               <div style={{ display: 'none' }} aria-hidden="true">
@@ -170,151 +142,78 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Full Name */}
-                <div>
-                  <label className="block text-xs font-bold text-navy-800 uppercase tracking-wider mb-1">
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Michael Smith"
-                    value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none transition-all"
-                  />
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label className="block text-xs font-bold text-navy-800 uppercase tracking-wider mb-1">
-                    Phone Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="(770) 555-0123"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none transition-all"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Email */}
-                <div>
-                  <label className="block text-xs font-bold text-navy-800 uppercase tracking-wider mb-1">
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="name@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none transition-all"
-                  />
-                </div>
-
-                {/* City */}
-                <div>
-                  <label className="block text-xs font-bold text-navy-800 uppercase tracking-wider mb-1">
-                    City / Community <span className="text-navy-400 font-normal">(Georgia)</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Cumming, Alpharetta, etc."
-                    value={formData.city}
-                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none transition-all"
-                  />
-                </div>
-              </div>
-
-              {/* Concern Type */}
+              {/* 1. Phone Number FIRST */}
               <div>
                 <label className="block text-xs font-bold text-navy-800 uppercase tracking-wider mb-1">
-                  Type of Property Concern
+                  Phone Number <span className="text-red-500">*</span>
                 </label>
-                <select
-                  value={formData.concernType}
-                  onChange={(e) => setFormData({ ...formData, concernType: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none transition-all bg-white"
-                >
-                  <option value="Visible Mold">Visible Mold on Walls, Ceilings or Vents</option>
-                  <option value="Moisture & Water Damage">Moisture Intrusion / Plumbing or Roof Leak</option>
-                  <option value="Crawl Space Concerns">Crawl Space / Musty Odors / Encapsulation</option>
-                  <option value="Real Estate / Pre-Sale">Real Estate Due Diligence / Pre-Sale Inspection</option>
-                  <option value="General Property Consultation">General Property Moisture Consultation</option>
-                </select>
+                <input
+                  type="tel"
+                  required
+                  autoFocus
+                  placeholder="(770) 555-0123"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none"
+                />
               </div>
 
-              {/* Message */}
+              {/* 2. Full Name */}
               <div>
                 <label className="block text-xs font-bold text-navy-800 uppercase tracking-wider mb-1">
-                  Briefly Describe What You've Noticed
+                  Your Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Full name"
+                  value={formData.fullName}
+                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none"
+                />
+              </div>
+
+              {/* 3. Short Optional Note */}
+              <div>
+                <label className="block text-xs font-bold text-navy-800 uppercase tracking-wider mb-1">
+                  How Can Don Help? <span className="text-navy-400 font-normal">(Optional)</span>
                 </label>
                 <textarea
-                  rows={3}
-                  placeholder="Share details such as how long you've noticed it, home foundation type (crawl space, basement, slab), or inspection timelines..."
+                  rows={2}
+                  placeholder="City & brief note (e.g. Cumming — musty crawl space or visible spots)"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none transition-all resize-none"
+                  className="w-full px-3.5 py-2 rounded-xl border border-navy-200 text-sm focus:ring-2 focus:ring-forest-500/40 focus:border-forest-600 outline-none resize-none"
                 />
-              </div>
-
-              {/* Consent and Privacy */}
-              <div className="flex items-start gap-2.5 pt-1">
-                <input
-                  id="consent_modal"
-                  type="checkbox"
-                  required
-                  checked={formData.consent}
-                  onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                  className="mt-1 w-4 h-4 rounded text-forest-600 focus:ring-forest-500 border-navy-300"
-                />
-                <label htmlFor="consent_modal" className="text-xs text-navy-600 leading-snug">
-                  I agree to receive a direct phone call or email from Don Helvey regarding my property inquiry. Your information remains completely confidential.
-                </label>
               </div>
 
               {/* Submit Button */}
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-3.5 px-6 rounded-xl bg-forest-600 hover:bg-forest-700 text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 focus:ring-2 focus:ring-forest-500/50 disabled:opacity-75"
-                >
-                  {loading ? (
-                    <span>Submitting Request...</span>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 text-gold-300" />
-                      <span>Submit Request to Don Helvey</span>
-                    </>
-                  )}
-                </button>
-              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3.5 px-5 rounded-xl bg-forest-600 hover:bg-forest-700 text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-75"
+              >
+                <Send className="w-4 h-4 text-white" />
+                <span>{loading ? 'Sending...' : 'Send Request'}</span>
+              </button>
 
-              {/* Direct Call Alternative */}
-              <div className="text-center pt-2">
-                <p className="text-xs text-navy-500">
-                  Prefer an immediate conversation? Call directly:{' '}
-                  <a href={`tel:${SITE_METADATA.rawPhone}`} className="font-bold text-forest-700 hover:underline">
-                    (770) 833-7410
-                  </a>
-                </p>
+              {/* Direct Call Link */}
+              <div className="text-center pt-1 flex items-center justify-between text-xs text-navy-500 border-t border-navy-100 mt-2">
+                <span>100% Private & Confidential</span>
+                <a
+                  href={`tel:${SITE_METADATA.rawPhone}`}
+                  className="font-bold text-forest-700 hover:underline inline-flex items-center gap-1"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>{SITE_METADATA.phone}</span>
+                </a>
               </div>
 
             </form>
           )}
-
         </div>
 
       </div>
     </div>
   );
 };
-

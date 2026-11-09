@@ -40,11 +40,11 @@ export async function submitContactForm(data: ContactFormData, endpoint?: string
     };
   }
 
-  // 3. Minimum input validation
-  if (!data.fullName.trim() || !data.phone.trim() || !data.email.trim()) {
+  // 3. Minimum input validation (Phone and Name only)
+  if (!data.phone.trim() || !data.fullName.trim()) {
     return {
       success: false,
-      message: "Please fill in all required fields (Name, Phone, and Email)."
+      message: "Please enter your phone number and name."
     };
   }
 
