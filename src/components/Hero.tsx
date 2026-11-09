@@ -14,11 +14,11 @@ export const Hero: React.FC<HeroProps> = ({ onTalkToDon, onRequestAssessment }) 
       
       {/* Responsive Background Images */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Mobile & Tablet Vertical Portrait Background — shifted right so Don sits in the right 44% of the screen */}
+        {/* Mobile & Tablet Vertical Portrait Background — shifted 5% left so Don is better centered */}
         <img
           src="./images/don-helvey-hero-mobile.jpg?v=2"
           alt="Don Helvey — Property & Mold Remediation Specialist"
-          className="lg:hidden w-full h-full object-cover object-[center_10%] translate-x-[13%] sm:translate-x-0 scale-[1.04] sm:scale-100"
+          className="lg:hidden w-full h-full object-cover object-[center_10%] translate-x-[8%] sm:translate-x-0 scale-[1.04] sm:scale-100"
         />
         {/* Desktop Widescreen 16:9 Background */}
         <img
