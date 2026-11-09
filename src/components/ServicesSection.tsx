@@ -44,19 +44,19 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onNavigate }) 
   };
 
   return (
-    <section id="services" className="py-16 sm:py-20 bg-warm border-b border-lightgray">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 sm:py-24 bg-warm border-b border-lightgray">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight mb-3">
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight mb-4">
             Practical Solutions for Mold and Moisture Problems
           </h2>
-          <p className="text-base sm:text-lg text-navy-600">
+          <p className="text-base sm:text-lg text-navy-600 leading-relaxed">
             Personal property consultations by Don Helvey, paired with certified remediation and moisture services through Mold Trust Inc.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PRIMARY_SERVICES.map((service) => {
             const isPersonal = service.performedBy === 'Personal Consultation & Coordination';
 

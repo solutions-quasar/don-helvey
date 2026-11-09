@@ -34,19 +34,19 @@ export const ProblemCards: React.FC<ProblemCardsProps> = () => {
   };
 
   return (
-    <section id="problem-recognition" className="py-16 sm:py-20 bg-white border-b border-lightgray">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="problem-recognition" className="py-20 sm:py-24 bg-white border-b border-lightgray">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight mb-3">
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight mb-4">
             Noticed Mold, Moisture, or a Musty Smell?
           </h2>
-          <p className="text-base sm:text-lg text-navy-600">
+          <p className="text-base sm:text-lg text-navy-600 leading-relaxed">
             Identifying the warning signs early helps protect your property and resolve moisture at the source.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-9">
           {PROBLEM_CARDS.map((card) => (
             <div
               key={card.id}
