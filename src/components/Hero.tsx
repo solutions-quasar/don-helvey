@@ -70,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({ onTalkToDon, onRequestAssessment }) 
           </div>
 
           {/* Full-Width Stacked Buttons on Mobile, Side-by-Side on Desktop */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-7 sm:mb-10">
+          <div id="hero-ctas" className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-7 sm:mb-10">
             <a
               href={`tel:${SITE_METADATA.rawPhone}`}
               onClick={onTalkToDon}
