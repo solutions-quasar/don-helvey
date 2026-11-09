@@ -4,7 +4,71 @@ export type RoutePath =
   | '/mold-inspection/'
   | '/crawl-space-moisture/'
   | '/about/'
-  | '/contact/';
+  | '/contact/'
+  | '/admin/';
+
+export type LeadStage =
+  | 'New Lead'
+  | 'Spoke with Don'
+  | 'Assessment Booked'
+  | 'Sent to Mold Trust'
+  | 'Completed';
+
+export interface HomeownerRecord {
+  id: string;
+  fullName: string;
+  address: string;
+  city: string;
+  county: string;
+  zip: string;
+  phone: string;
+  email: string;
+  yearBuilt: number;
+  foundation: 'Crawl Space' | 'Basement' | 'Slab';
+  sqft: number;
+  humidityRisk: 'High Risk' | 'Moderate' | 'Low';
+  outreachStatus: 'Never Contacted' | 'In Drip' | 'Opened / Clicked' | 'Replied (Lead)' | 'Do Not Contact';
+  lastTouch?: string;
+}
+
+export interface OutreachCampaign {
+  id: string;
+  name: string;
+  targetCity: string;
+  targetFoundation: string;
+  targetAgeGroup: string;
+  status: 'Active' | 'Paused' | 'Completed';
+  channel: 'Email + SMS Drip' | 'SMS Advisory' | 'Email Newsletter' | 'Postcard + SMS';
+  totalAudience: number;
+  sentCount: number;
+  deliveredRate: number;
+  replyCount: number;
+  dailyLimit: number;
+  subjectOrHook: string;
+  messagePreview: string;
+}
+
+export interface ErpLeadItem {
+  id: string;
+  fullName: string;
+  phone: string;
+  email: string;
+  address: string;
+  city: string;
+  concernType: string;
+  foundation: 'Crawl Space' | 'Basement' | 'Slab';
+  yearBuilt: number;
+  stage: LeadStage;
+  source: 'Website Form' | '250K Drip Reply' | 'Realtor Referral' | 'Direct Call';
+  createdAt: string;
+  notes: string;
+  estimatedJobValue: number;
+  donCommissionRate: number; // e.g. 0.15 (15%)
+  moldTrustJobType?: string;
+  appointmentTime?: string;
+  moistureReadingRH?: number;
+  woodMoisturePct?: number;
+}
 
 export interface NavItem {
   label: string;

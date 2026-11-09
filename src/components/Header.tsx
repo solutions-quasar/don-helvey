@@ -129,8 +129,16 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onReque
             </button>
           </nav>
 
-          {/* Single Clean Header CTA */}
-          <div className="hidden md:flex items-center shrink-0">
+          {/* Single Clean Header CTA + ERP Demo Access */}
+          <div className="hidden md:flex items-center gap-2.5 shrink-0">
+            <button
+              onClick={() => handleNavClick('/admin/')}
+              className="border border-navy-200 bg-white hover:bg-navy-900 hover:text-white hover:border-navy-900 text-navy-800 font-semibold text-xs px-3.5 py-2.5 rounded-lg transition-all whitespace-nowrap flex items-center gap-1.5"
+              title="Open Don's 250K Homeowner ERP & Lead Command Center"
+            >
+              <span className="w-2 h-2 rounded-full bg-gold-500" />
+              <span>250K ERP Demo</span>
+            </button>
             <button
               onClick={onRequestAssessment}
               className="bg-forest-600 hover:bg-forest-700 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm transition-all whitespace-nowrap"
@@ -205,6 +213,15 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onReque
             className="w-full text-left py-2.5 px-3 rounded-lg text-base font-medium text-navy-800 hover:bg-forest-50"
           >
             Contact
+          </button>
+          <button
+            onClick={() => handleNavClick('/admin/')}
+            className="w-full text-left py-2.5 px-3 rounded-lg text-base font-bold text-navy-950 bg-gold-300/25 border border-gold-400/50 flex items-center justify-between"
+          >
+            <span>250K Homeowner ERP Demo</span>
+            <span className="text-xs font-bold uppercase px-2 py-0.5 rounded bg-navy-900 text-gold-300">
+              Admin
+            </span>
           </button>
 
           <div className="pt-3 border-t border-navy-100">

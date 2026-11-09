@@ -1,4 +1,5 @@
 import { ContactFormData } from '../types';
+import { addWebsiteLeadToErp } from '../data/erpData';
 
 export const CLIENT_SECRET_TOKEN = 'x-donhelvey-client: secure-form-v1';
 
@@ -47,6 +48,14 @@ export async function submitContactForm(data: ContactFormData, endpoint?: string
       message: "Please enter your phone number and name."
     };
   }
+
+  // Sync valid website inquiry directly into Don's ERP Lead Pipeline
+  addWebsiteLeadToErp({
+    fullName: data.fullName.trim(),
+    phone: data.phone.trim(),
+    concernType: data.concernType,
+    city: data.city?.trim() || undefined,
+  });
 
   // 4. Default endpoint can be configured via environment or fallback to Formspree/Web3Forms
   // Users can set VITE_CONTACT_FORM_ENDPOINT in their .env

@@ -10,6 +10,7 @@ import { MoldInspectionPage } from './pages/MoldInspectionPage';
 import { CrawlSpacePage } from './pages/CrawlSpacePage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { AdminErpPage } from './pages/AdminErpPage';
 import { SITE_METADATA } from './data/content';
 
 export const App: React.FC = () => {
@@ -43,7 +44,7 @@ export const App: React.FC = () => {
         pathname = `${pathname}/`;
       }
 
-      if (['/', '/mold-remediation/', '/mold-inspection/', '/crawl-space-moisture/', '/about/', '/contact/'].includes(pathname)) {
+      if (['/', '/mold-remediation/', '/mold-inspection/', '/crawl-space-moisture/', '/about/', '/contact/', '/admin/'].includes(pathname)) {
         setCurrentPath(pathname as RoutePath);
       } else {
         setCurrentPath('/');
@@ -134,6 +135,10 @@ export const App: React.FC = () => {
         );
     }
   };
+
+  if (currentPath === '/admin/') {
+    return <AdminErpPage onNavigate={handleNavigate} />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-warm text-navy-800 font-sans">

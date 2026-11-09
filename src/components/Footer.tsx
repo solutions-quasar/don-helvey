@@ -87,6 +87,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Contact & Assessment Inquiries
                 </button>
               </li>
+              <li className="pt-1">
+                <button
+                  onClick={() => onNavigate('/admin/')}
+                  className="inline-flex items-center gap-1.5 text-gold-400 hover:text-gold-300 font-semibold transition-colors"
+                >
+                  <span>→ 250K Homeowner ERP & Admin Demo</span>
+                </button>
+              </li>
             </ul>
           </div>
 
