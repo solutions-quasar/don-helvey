@@ -14,11 +14,11 @@ export const Hero: React.FC<HeroProps> = ({ onTalkToDon, onRequestAssessment }) 
       
       {/* Responsive Background Images */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Mobile & Tablet Vertical Portrait Background — shifted 5% left so Don is better centered */}
+        {/* Mobile & Tablet Vertical Portrait Background */}
         <img
           src="./images/don-helvey-hero-mobile.jpg?v=2"
           alt="Don Helvey — Property & Mold Remediation Specialist"
-          className="lg:hidden w-full h-full object-cover object-[center_10%] translate-x-[8%] sm:translate-x-0 scale-[1.04] sm:scale-100"
+          className="lg:hidden w-full h-full object-cover object-[center_8%] translate-x-[9%] sm:translate-x-0 scale-[1.02] sm:scale-100"
         />
         {/* Desktop Widescreen 16:9 Background */}
         <img
@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({ onTalkToDon, onRequestAssessment }) 
         />
 
         {/* Subtle Left & Bottom Vignette on Mobile for Crisp Text & Buttons */}
-        <div className="absolute inset-0 lg:hidden bg-gradient-to-r from-[#141E28]/85 via-[#141E28]/35 via-50% to-transparent" />
+        <div className="absolute inset-0 lg:hidden bg-gradient-to-r from-[#141E28]/85 via-[#141E28]/35 via-55% to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-64 lg:hidden bg-gradient-to-t from-[#101820]/95 via-[#101820]/55 to-transparent" />
 
         {/* Desktop Left-Only Gradient */}
@@ -37,11 +37,11 @@ export const Hero: React.FC<HeroProps> = ({ onTalkToDon, onRequestAssessment }) 
       </div>
 
       {/* Foreground Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 pb-10 sm:py-16 lg:py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-8 pb-10 sm:py-16 lg:py-28">
         <div className="max-w-xl lg:max-w-[600px] text-left">
           
           {/* Eyebrow with Georgia Flag */}
-          <div className="flex items-center gap-2.5 text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.1em] text-white/95 leading-snug">
+          <div className="flex items-center gap-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.1em] text-white/95 leading-snug">
             <GeorgiaFlag className="w-5 h-3.5 shadow-sm shrink-0" />
             <div>
               <span className="block sm:inline">North Atlanta & North Georgia</span>
@@ -51,20 +51,20 @@ export const Hero: React.FC<HeroProps> = ({ onTalkToDon, onRequestAssessment }) 
           </div>
 
           {/* Gold Accent Line */}
-          <div className="w-14 h-[2.5px] bg-gold-400 mt-3.5 mb-5 sm:mb-7 rounded-full" />
+          <div className="w-16 h-[2.5px] bg-gold-400 mt-3.5 mb-5 sm:mb-7 rounded-full" />
 
-          {/* Strictly Narrowed Left Column on Mobile (47% max width) so Text Never Touches Don */}
-          <div className="max-w-[47%] sm:max-w-lg mb-7 sm:mb-9">
-            <h1 className="font-serif text-[26px] sm:text-5xl lg:text-[54px] font-bold text-white leading-[1.12] tracking-tight mb-3.5 sm:mb-5 drop-shadow-sm">
-              <span className="block">
+          {/* Headline & Copy: Top lines stay clear of Don's face (54%), while "Get Expert Guidance." sits on one bold line below his chin */}
+          <div className="mb-7 sm:mb-9">
+            <h1 className="font-serif text-[31px] sm:text-5xl lg:text-[54px] font-bold text-white leading-[1.09] tracking-tight mb-4 sm:mb-5 drop-shadow-sm">
+              <span className="block max-w-[54%] sm:max-w-none">
                 Worried About Mold in Your Home?
               </span>
-              <span className="block italic font-normal text-[#6EB8F0] text-[21px] sm:text-5xl lg:text-[52px] leading-[1.18] mt-1.5">
+              <span className="block italic font-normal text-[#6EB8F0] text-[25px] sm:text-5xl lg:text-[52px] leading-[1.15] mt-2 whitespace-nowrap">
                 Get Expert Guidance.
               </span>
             </h1>
 
-            <p className="text-[13px] sm:text-lg text-white/90 leading-[1.48] sm:leading-relaxed font-normal">
+            <p className="text-[14px] sm:text-lg text-white/90 leading-[1.48] sm:leading-relaxed max-w-[57%] sm:max-w-lg font-normal">
               With 30 years of real estate experience, Don Helvey helps homeowners identify and resolve mold and moisture issues with confidence.
             </p>
           </div>
