@@ -395,7 +395,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
   // Leads Filter
   const [stageFilter, setStageFilter] = useState<LeadStage | 'All'>('All');
 
-  // 250K Vault Simple Filters
+  // Homeowner Vault Simple Filters
   const [vaultCity, setVaultCity] = useState<string>('All');
   const [vaultFoundation, setVaultFoundation] = useState<string>('All');
   const [vaultSearch, setVaultSearch] = useState<string>('');
@@ -451,7 +451,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
     };
   }, [campaigns, leads, threads]);
 
-  // Dynamic 250K Count
+  // Dynamic Homeowner Vault Count
   const matchedHomeownerCount = useMemo(() => {
     let total = 250000;
     if (vaultCity !== 'All') {
@@ -574,9 +574,9 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
       foundation: record.foundation,
       yearBuilt: record.yearBuilt,
       stage: 'New Lead',
-      source: '250K Drip Reply',
+      source: 'Outreach Drip Reply',
       createdAt: 'Just Now',
-      notes: `Added from 250K List (${record.address}, built ${record.yearBuilt}).`,
+      notes: `Added from Homeowner Database (${record.address}, built ${record.yearBuilt}).`,
       estimatedJobValue: 4800,
       donCommissionRate: 0.15,
     };
@@ -693,9 +693,9 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
     },
     {
       id: 'vault',
-      label: '250K Homeowners',
+      label: 'Homeowners',
       icon: <Database className="w-5 h-5" />,
-      badge: '250K',
+      badge: 'Database',
     },
     {
       id: 'campaigns',
@@ -736,7 +736,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
               DON HELVEY
             </div>
             <div className="text-[11px] font-semibold text-gold-400 uppercase tracking-wider mt-1">
-              Business ERP
+              ERP Demo
             </div>
           </div>
         </div>
@@ -829,7 +829,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
           </button>
           <div>
             <div className="font-sans font-bold text-sm tracking-tight leading-none">
-              DON HELVEY ERP
+              DON HELVEY ERP DEMO
             </div>
             <div className="text-[11px] text-gold-400 font-semibold mt-0.5">
               {navItems.find((n) => n.id === activeSection)?.label}
@@ -870,7 +870,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
                   </div>
                   <div>
                     <div className="font-sans font-bold text-base">DON HELVEY</div>
-                    <div className="text-[11px] text-gold-400">Business ERP</div>
+                    <div className="text-[11px] text-gold-400">ERP Demo</div>
                   </div>
                 </div>
                 <button
@@ -936,7 +936,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
                     Dashboard
                   </h1>
                   <p className="text-sm sm:text-base text-navy-600 mt-1">
-                    Overview of your 250K homeowner outreach, inbox replies, and upcoming appointments.
+                    Overview of your homeowner outreach, inbox replies, and upcoming appointments.
                   </p>
                 </div>
 
@@ -997,7 +997,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
                   className="bg-white p-6 rounded-2xl border border-navy-100 shadow-sm text-left hover:border-forest-400 transition-all"
                 >
                   <div className="text-xs font-bold uppercase tracking-wider text-navy-500">
-                    250K Homeowner List
+                    Homeowner Database
                   </div>
                   <div className="font-sans text-4xl font-bold tracking-tight text-navy-950 mt-2.5">
                     250,000
@@ -1045,7 +1045,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
                         Homeowners to Call Today
                       </h2>
                       <p className="text-sm text-navy-500 mt-0.5">
-                        Recent replies from your 250K SMS drip & website form
+                        Recent replies from your outreach drips & website form
                       </p>
                     </div>
                     <button
@@ -1208,7 +1208,7 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
                     Homeowner Inbox
                   </h1>
                   <p className="text-sm sm:text-base text-navy-600 mt-0.5">
-                    Direct SMS replies from your 250K campaigns, emails, and website inquiries.
+                    Direct SMS replies from your outreach campaigns, emails, and website inquiries.
                   </p>
                 </div>
               </div>
@@ -1833,13 +1833,13 @@ export const AdminErpPage: React.FC<AdminErpPageProps> = ({ onNavigate }) => {
           )}
 
           {/* ---------------------------------------------------------
-              VIEW 5: 250K HOMEOWNERS
+              VIEW 5: HOMEOWNERS VAULT
              --------------------------------------------------------- */}
           {activeSection === 'vault' && (
             <div className="space-y-6">
               <div>
                 <h1 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-navy-950">
-                  250,000 Homeowner Database
+                  Homeowner Database
                 </h1>
                 <p className="text-sm text-navy-600 mt-1">
                   Filter by city and foundation type to launch a drip or add a homeowner to your leads.

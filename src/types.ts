@@ -5,6 +5,8 @@ export type RoutePath =
   | '/crawl-space-moisture/'
   | '/about/'
   | '/contact/'
+  | '/realtor-closing-protection/'
+  | '/homeowner-mold-health/'
   | '/admin/';
 
 export type LeadStage =
@@ -59,7 +61,7 @@ export interface ErpLeadItem {
   foundation: 'Crawl Space' | 'Basement' | 'Slab';
   yearBuilt: number;
   stage: LeadStage;
-  source: 'Website Form' | '250K Drip Reply' | 'Realtor Referral' | 'Direct Call';
+  source: 'Website Form' | 'Outreach Drip Reply' | 'Realtor Referral' | 'Direct Call';
   createdAt: string;
   notes: string;
   estimatedJobValue: number;

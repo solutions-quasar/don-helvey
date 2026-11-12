@@ -10,6 +10,8 @@ import { MoldInspectionPage } from './pages/MoldInspectionPage';
 import { CrawlSpacePage } from './pages/CrawlSpacePage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { RealtorClosingProtectionPage } from './pages/RealtorClosingProtectionPage';
+import { HomeownerHealthPage } from './pages/HomeownerHealthPage';
 import { AdminErpPage } from './pages/AdminErpPage';
 import { SITE_METADATA } from './data/content';
 
@@ -44,7 +46,7 @@ export const App: React.FC = () => {
         pathname = `${pathname}/`;
       }
 
-      if (['/', '/mold-remediation/', '/mold-inspection/', '/crawl-space-moisture/', '/about/', '/contact/', '/admin/'].includes(pathname)) {
+      if (['/', '/mold-remediation/', '/mold-inspection/', '/crawl-space-moisture/', '/about/', '/contact/', '/realtor-closing-protection/', '/homeowner-mold-health/', '/admin/'].includes(pathname)) {
         setCurrentPath(pathname as RoutePath);
       } else {
         setCurrentPath('/');
@@ -120,6 +122,20 @@ export const App: React.FC = () => {
         return (
           <ContactPage
             onNavigate={handleNavigate}
+          />
+        );
+      case '/realtor-closing-protection/':
+        return (
+          <RealtorClosingProtectionPage
+            onNavigate={handleNavigate}
+            onRequestAssessment={() => openAssessmentModal('Realtor Closing Issue')}
+          />
+        );
+      case '/homeowner-mold-health/':
+        return (
+          <HomeownerHealthPage
+            onNavigate={handleNavigate}
+            onRequestAssessment={() => openAssessmentModal('Family Health & Air Quality')}
           />
         );
       case '/':

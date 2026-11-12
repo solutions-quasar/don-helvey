@@ -98,10 +98,28 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onReque
                     >
                       Crawl Space Moisture
                     </button>
+                    <button
+                      onClick={() => handleNavClick('/homeowner-mold-health/')}
+                      className="w-full text-left px-3.5 py-2.5 text-sm font-medium rounded-lg text-navy-800 hover:bg-forest-50 hover:text-forest-700 transition-colors block"
+                    >
+                      Family Health & Air Quality
+                    </button>
                   </div>
                 </div>
               )}
             </div>
+
+            <button
+              onClick={() => handleNavClick('/realtor-closing-protection/')}
+              className={`text-sm font-semibold whitespace-nowrap transition-colors hover:text-forest-600 flex items-center gap-1.5 ${
+                currentPath === '/realtor-closing-protection/' ? 'text-forest-600' : 'text-navy-900'
+              }`}
+            >
+              <span>For Realtors</span>
+              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-gold-500/20 text-gold-700 border border-gold-400/40">
+                Closing Help
+              </span>
+            </button>
 
             <button
               onClick={() => handleNavClick('/about/')}
@@ -134,10 +152,10 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onReque
             <button
               onClick={() => handleNavClick('/admin/')}
               className="border border-navy-200 bg-white hover:bg-navy-900 hover:text-white hover:border-navy-900 text-navy-800 font-semibold text-xs px-3.5 py-2.5 rounded-lg transition-all whitespace-nowrap flex items-center gap-1.5"
-              title="Open Don's 250K Homeowner ERP & Lead Command Center"
+              title="Open Don's ERP Command Center"
             >
               <span className="w-2 h-2 rounded-full bg-gold-500" />
-              <span>250K ERP Demo</span>
+              <span>ERP Demo</span>
             </button>
             <button
               onClick={onRequestAssessment}
@@ -197,6 +215,24 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onReque
             Crawl Space Moisture
           </button>
           <button
+            onClick={() => handleNavClick('/homeowner-mold-health/')}
+            className="w-full text-left py-2.5 px-3 rounded-lg text-base font-medium text-navy-800 hover:bg-forest-50 flex items-center justify-between"
+          >
+            <span>Family Health & Air Quality</span>
+            <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-forest-100 text-forest-800">
+              Homeowner
+            </span>
+          </button>
+          <button
+            onClick={() => handleNavClick('/realtor-closing-protection/')}
+            className="w-full text-left py-2.5 px-3 rounded-lg text-base font-medium text-navy-800 hover:bg-forest-50 flex items-center justify-between"
+          >
+            <span>For Realtors & Brokers</span>
+            <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-gold-500/20 text-gold-700 border border-gold-400/40">
+              Closing Help
+            </span>
+          </button>
+          <button
             onClick={() => handleNavClick('/about/')}
             className="w-full text-left py-2.5 px-3 rounded-lg text-base font-medium text-navy-800 hover:bg-forest-50"
           >
@@ -218,7 +254,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onReque
             onClick={() => handleNavClick('/admin/')}
             className="w-full text-left py-2.5 px-3 rounded-lg text-base font-bold text-navy-950 bg-gold-300/25 border border-gold-400/50 flex items-center justify-between"
           >
-            <span>250K Homeowner ERP Demo</span>
+            <span>ERP Demo</span>
             <span className="text-xs font-bold uppercase px-2 py-0.5 rounded bg-navy-900 text-gold-300">
               Admin
             </span>

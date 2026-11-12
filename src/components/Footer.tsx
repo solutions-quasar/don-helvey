@@ -78,6 +78,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </button>
               </li>
               <li>
+                <button onClick={() => onNavigate('/homeowner-mold-health/')} className="hover:text-white transition-colors text-forest-300">
+                  Family Health & Air Quality Funnel
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/realtor-closing-protection/')} className="hover:text-white transition-colors text-gold-300">
+                  Realtor Closing Protection Funnel
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onNavigate('/about/')} className="hover:text-white transition-colors">
                   About Don Helvey
                 </button>
@@ -92,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate('/admin/')}
                   className="inline-flex items-center gap-1.5 text-gold-400 hover:text-gold-300 font-semibold transition-colors"
                 >
-                  <span>→ 250K Homeowner ERP & Admin Demo</span>
+                  <span>→ ERP Demo</span>
                 </button>
               </li>
             </ul>
