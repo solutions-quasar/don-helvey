@@ -55,39 +55,67 @@ export const RealtorClosingProtectionPage: React.FC<PageProps> = () => {
     <div className="bg-warm text-navy-950 font-sans">
       {/* Top Realtor Emergency Header Banner */}
       <section className="bg-navy-950 text-white pt-12 pb-16 sm:pb-20 relative overflow-hidden border-b border-navy-800">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/40 text-xs font-bold uppercase tracking-wider">
-            <Award className="w-4 h-4 text-gold-400" />
-            <span>Dedicated Real Estate Broker & Agent Fast-Track Solution</span>
-          </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left 7 Cols: Headline, Badges & Stats */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/40 text-xs font-bold uppercase tracking-wider">
+                <Award className="w-4 h-4 text-gold-400" />
+                <span>Dedicated Real Estate Broker & Agent Fast-Track Solution</span>
+              </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Home Inspection Flagged Mold? <br />
-            <span className="text-gold-400 italic">Don’t Let It Kill Your Closing.</span>
-          </h1>
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                Home Inspection Flagged Mold? <br />
+                <span className="text-gold-400 italic">Don’t Let It Kill Your Closing.</span>
+              </h1>
 
-          <p className="text-base sm:text-xl text-navy-200 leading-relaxed max-w-3xl">
-            As a <strong className="text-white font-semibold">30-year licensed Georgia Real Estate Broker</strong> and <strong className="text-white font-semibold">GREC-Approved CE Instructor</strong>, Don Helvey steps in immediately to evaluate moisture, calm anxious buyers, and provide lender-approved remediation clearance on schedule.
-          </p>
+              <p className="text-base sm:text-lg text-navy-200 leading-relaxed max-w-2xl">
+                As a <strong className="text-white font-semibold">30-year licensed Georgia Real Estate Broker</strong> and <strong className="text-white font-semibold">GREC-Approved CE Instructor</strong>, Don Helvey steps in immediately to evaluate moisture, calm anxious buyers, and provide lender-approved remediation clearance on schedule.
+              </p>
 
-          {/* Quick Stats Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4">
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800">
-              <div className="text-gold-400 font-bold text-xl sm:text-2xl font-serif">24–48h</div>
-              <div className="text-xs text-navy-300 mt-1">Fast-Track On-Site Assessment</div>
+              {/* Quick Stats Strip */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-800 text-center sm:text-left">
+                  <div className="text-gold-400 font-bold text-xl sm:text-2xl font-serif">24–48h</div>
+                  <div className="text-[11px] text-navy-300 mt-0.5">Fast-Track Assessment</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-800 text-center sm:text-left">
+                  <div className="text-white font-bold text-xl sm:text-2xl font-serif">30 Years</div>
+                  <div className="text-[11px] text-navy-300 mt-0.5">GA Broker Experience</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-800 text-center sm:text-left">
+                  <div className="text-forest-400 font-bold text-xl sm:text-2xl font-serif">Clearance</div>
+                  <div className="text-[11px] text-navy-300 mt-0.5">Post-Remediation Verification</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-800 text-center sm:text-left">
+                  <div className="text-gold-400 font-bold text-xl sm:text-2xl font-serif">GAR Ready</div>
+                  <div className="text-[11px] text-navy-300 mt-0.5">Amendment & Scope Friendly</div>
+                </div>
+              </div>
             </div>
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800">
-              <div className="text-white font-bold text-xl sm:text-2xl font-serif">30 Years</div>
-              <div className="text-xs text-navy-300 mt-1">GA Broker Contract Savvy</div>
+
+            {/* Right 5 Cols: Visual Card of Don Helvey */}
+            <div className="lg:col-span-5">
+              <div className="relative mx-auto max-w-sm rounded-2xl overflow-hidden bg-navy-900 border-2 border-gold-400/40 shadow-2xl group">
+                <img
+                  src="./images/don-helvey.jpg"
+                  alt="Don Helvey, Licensed Georgia Real Estate Broker & Certified Mold Remediator"
+                  className="w-full aspect-[4/5] object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-5 space-y-1">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-gold-500 text-navy-950 text-[10px] font-bold uppercase tracking-wider">
+                    <span>Licensed GA Broker & CE Instructor</span>
+                  </div>
+                  <div className="font-serif font-bold text-xl text-white">Don Helvey</div>
+                  <p className="text-xs text-navy-200 italic leading-snug">
+                    "I speak contract deadlines. When an inspection report flags moisture, our job is to protect your closing with objective facts and fast lender clearance."
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800">
-              <div className="text-forest-400 font-bold text-xl sm:text-2xl font-serif">Clearance</div>
-              <div className="text-xs text-navy-300 mt-1">Post-Remediation Verification</div>
-            </div>
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800">
-              <div className="text-gold-400 font-bold text-xl sm:text-2xl font-serif">GAR Ready</div>
-              <div className="text-xs text-navy-300 mt-1">Amendment & Scope Friendly</div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -109,6 +137,15 @@ export const RealtorClosingProtectionPage: React.FC<PageProps> = () => {
                 <h2 className="font-serif text-2xl font-bold text-navy-950">
                   Why Mold Findings Wreck Real Estate Contracts
                 </h2>
+
+                <div className="rounded-xl overflow-hidden aspect-[16/9] border border-navy-100 shadow-2xs my-2">
+                  <img
+                    src="./images/pre-sale-home-walkthrough.jpg"
+                    alt="Pre-sale real estate inspection walkthrough"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
                 <p className="text-sm sm:text-base text-navy-700 leading-relaxed">
                   When a private home inspector notes "microbial growth" or "elevated wood moisture" in a crawl space, panic sets in:
                 </p>
@@ -137,6 +174,14 @@ export const RealtorClosingProtectionPage: React.FC<PageProps> = () => {
                 <h2 className="font-serif text-2xl font-bold text-navy-950">
                   How Don Helvey Saves the Transaction
                 </h2>
+
+                <div className="rounded-xl overflow-hidden aspect-[16/9] border border-navy-100 shadow-2xs">
+                  <img
+                    src="./images/moisture-meter-wall.jpg"
+                    alt="Calibrated diagnostic moisture meter testing on building materials"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
                 <div className="space-y-4">
                   <div className="p-4 rounded-xl bg-warm border border-navy-100 flex items-start gap-3.5">

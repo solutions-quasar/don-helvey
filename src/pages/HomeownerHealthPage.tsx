@@ -54,39 +54,67 @@ export const HomeownerHealthPage: React.FC<PageProps> = () => {
     <div className="bg-warm text-navy-950 font-sans">
       {/* Top Health Header */}
       <section className="bg-navy-950 text-white pt-12 pb-16 sm:pb-20 relative overflow-hidden border-b border-navy-800">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-500/20 text-forest-300 border border-forest-400/40 text-xs font-bold uppercase tracking-wider">
-            <HeartHandshake className="w-4 h-4 text-forest-400" />
-            <span>Protecting Family Air Quality & Living Spaces</span>
-          </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left 7 Cols: Headline & Key Stats */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-500/20 text-forest-300 border border-forest-400/40 text-xs font-bold uppercase tracking-wider">
+                <HeartHandshake className="w-4 h-4 text-forest-400" />
+                <span>Protecting Family Air Quality & Living Spaces</span>
+              </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Worried Mold in Your Home is <br />
-            <span className="text-gold-400 italic">Affecting Your Family’s Health?</span>
-          </h1>
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                Worried Mold in Your Home is <br />
+                <span className="text-gold-400 italic">Affecting Your Family’s Health?</span>
+              </h1>
 
-          <p className="text-base sm:text-xl text-navy-200 leading-relaxed max-w-3xl">
-            Up to 50% of the air on your first floor comes directly from your crawl space or basement. Don Helvey provides <strong className="text-white font-semibold">calm, scientific moisture diagnostics</strong> and honest guidance—without the fear-mongering high-pressure sales tactics.
-          </p>
+              <p className="text-base sm:text-lg text-navy-200 leading-relaxed max-w-2xl">
+                Up to 50% of the air on your first floor comes directly from your crawl space or basement. Don Helvey provides <strong className="text-white font-semibold">calm, scientific moisture diagnostics</strong> and honest guidance—without the fear-mongering high-pressure sales tactics.
+              </p>
 
-          {/* Key Pillars */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4">
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800">
-              <div className="text-gold-400 font-bold text-xl sm:text-2xl font-serif">Zero Panic</div>
-              <div className="text-xs text-navy-300 mt-1">Honest, Non-Alarmist Guidance</div>
+              {/* Key Pillars */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-800 text-center sm:text-left">
+                  <div className="text-gold-400 font-bold text-xl sm:text-2xl font-serif">Zero Panic</div>
+                  <div className="text-[11px] text-navy-300 mt-0.5">Honest, Calm Guidance</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-800 text-center sm:text-left">
+                  <div className="text-forest-400 font-bold text-xl sm:text-2xl font-serif">Air Quality</div>
+                  <div className="text-[11px] text-navy-300 mt-0.5">Air Flow Analysis</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-800 text-center sm:text-left">
+                  <div className="text-white font-bold text-xl sm:text-2xl font-serif">Scientific</div>
+                  <div className="text-[11px] text-navy-300 mt-0.5">Calibrated RH % Data</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-800 text-center sm:text-left">
+                  <div className="text-gold-400 font-bold text-xl sm:text-2xl font-serif">Mold Trust</div>
+                  <div className="text-[11px] text-navy-300 mt-0.5">IICRC Certified Work</div>
+                </div>
+              </div>
             </div>
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800">
-              <div className="text-forest-400 font-bold text-xl sm:text-2xl font-serif">Air Quality</div>
-              <div className="text-xs text-navy-300 mt-1">Stack Effect Air Flow Analysis</div>
+
+            {/* Right 5 Cols: Visual Card of Healthy Home & Don */}
+            <div className="lg:col-span-5">
+              <div className="relative mx-auto max-w-sm rounded-2xl overflow-hidden bg-navy-900 border-2 border-forest-400/40 shadow-2xl group">
+                <img
+                  src="./images/property-exterior.jpg"
+                  alt="Healthy North Georgia Home and Living Environment"
+                  className="w-full aspect-[4/5] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-5 space-y-1">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-forest-600 text-white text-[10px] font-bold uppercase tracking-wider">
+                    <span>Clean Air & Healthy Home Promise</span>
+                  </div>
+                  <div className="font-serif font-bold text-xl text-white">Objective Diagnosis</div>
+                  <p className="text-xs text-navy-200 italic leading-snug">
+                    "I measure with calibrated instruments to tell you the real story—no high-pressure fear tactics, just pure facts to protect your family."
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800">
-              <div className="text-white font-bold text-xl sm:text-2xl font-serif">Scientific</div>
-              <div className="text-xs text-navy-300 mt-1">RH % & Wood Moisture Data</div>
-            </div>
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800">
-              <div className="text-gold-400 font-bold text-xl sm:text-2xl font-serif">Mold Trust</div>
-              <div className="text-xs text-navy-300 mt-1">Certified IICRC Remediation</div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -108,6 +136,15 @@ export const HomeownerHealthPage: React.FC<PageProps> = () => {
                 <h2 className="font-serif text-2xl font-bold text-navy-950">
                   What Are You Noticing in Your Home?
                 </h2>
+
+                <div className="rounded-xl overflow-hidden aspect-[16/9] border border-navy-100 shadow-2xs my-2">
+                  <img
+                    src="./images/hepa-remediation-equipment.jpg"
+                    alt="Certified HEPA indoor air purification and moisture control"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                   <div className="p-4 rounded-xl bg-warm border border-navy-100 space-y-1">
                     <h3 className="font-bold text-sm text-navy-900">Musty Odor from AC Vents</h3>
@@ -137,6 +174,15 @@ export const HomeownerHealthPage: React.FC<PageProps> = () => {
                 <h2 className="font-serif text-2xl font-bold text-navy-950">
                   Why Crawl Space Air Enters Your Bedrooms
                 </h2>
+
+                <div className="rounded-xl overflow-hidden aspect-[16/9] border border-navy-100 shadow-2xs">
+                  <img
+                    src="./images/crawl-space-inspection.jpg"
+                    alt="Sealed crawl space encapsulation with clean vapor barrier"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
                 <p className="text-sm sm:text-base text-navy-700 leading-relaxed">
                   Through the natural architectural phenomenon known as the <strong>« Stack Effect »</strong>, warm air rises through your home and escapes through the attic. This creates a vacuum on the lower level, pulling up to <strong>50% of your indoor breathing air directly from the crawl space or basement</strong> through subfloor penetrations, plumbing cutouts, and HVAC returns.
                 </p>
