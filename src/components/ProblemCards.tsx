@@ -1,6 +1,7 @@
 import React from 'react';
 import { Eye, Droplets, Warehouse } from 'lucide-react';
 import { PROBLEM_CARDS } from '../data/content';
+import { getAssetUrl } from '../utils/assets';
 
 interface ProblemCardsProps {
   onRequestAssessment: () => void;
@@ -23,13 +24,13 @@ export const ProblemCards: React.FC<ProblemCardsProps> = () => {
   const getImage = (id: string) => {
     switch (id) {
       case 'visible-mold':
-        return './images/moisture-meter-wall.jpg';
+        return getAssetUrl('images/moisture-meter-wall.jpg');
       case 'moisture-water-damage':
-        return './images/water-restoration-drying.jpg';
+        return getAssetUrl('images/water-restoration-drying.jpg');
       case 'crawl-space-concerns':
-        return './images/crawl-space-inspection.jpg';
+        return getAssetUrl('images/crawl-space-inspection.jpg');
       default:
-        return './images/moisture-meter-wall.jpg';
+        return getAssetUrl('images/moisture-meter-wall.jpg');
     }
   };
 

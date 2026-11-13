@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, GraduationCap, Building2, ShieldCheck } from 'lucide-react';
 import { GeorgiaFlag } from './GeorgiaFlag';
+import { getAssetUrl } from '../utils/assets';
 
 interface AboutSectionProps {
   onSpeakWithDon: () => void;
@@ -53,7 +54,7 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
           <div className="lg:col-span-4">
             <div className="max-w-xs sm:max-w-sm mx-auto rounded-2xl overflow-hidden shadow-premium border border-navy-100 bg-white">
               <img
-                src="./images/don-helvey.jpg?v=2"
+                src={getAssetUrl('images/don-helvey.jpg?v=2')}
                 alt="Don Helvey"
                 className="w-full aspect-square object-cover object-top block"
                 loading="lazy"

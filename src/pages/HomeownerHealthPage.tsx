@@ -3,6 +3,7 @@ import { Phone, HeartHandshake, CheckCircle2, AlertCircle, ArrowRight, ShieldChe
 import { SITE_METADATA } from '../data/content';
 import { RoutePath } from '../types';
 import { submitContactForm } from '../utils/security';
+import { getAssetUrl } from '../utils/assets';
 
 interface PageProps {
   onNavigate: (path: RoutePath, hash?: string) => void;
@@ -98,7 +99,7 @@ export const HomeownerHealthPage: React.FC<PageProps> = () => {
             <div className="lg:col-span-5">
               <div className="relative mx-auto max-w-sm rounded-2xl overflow-hidden bg-navy-900 border-2 border-forest-400/40 shadow-2xl group">
                 <img
-                  src="./images/property-exterior.jpg"
+                  src={getAssetUrl('images/property-exterior.jpg')}
                   alt="Healthy North Georgia Home and Living Environment"
                   className="w-full aspect-[4/5] object-cover"
                 />
@@ -139,7 +140,7 @@ export const HomeownerHealthPage: React.FC<PageProps> = () => {
 
                 <div className="rounded-xl overflow-hidden aspect-[16/9] border border-navy-100 shadow-2xs my-2">
                   <img
-                    src="./images/hepa-remediation-equipment.jpg"
+                    src={getAssetUrl('images/hepa-remediation-equipment.jpg')}
                     alt="Certified HEPA indoor air purification and moisture control"
                     className="w-full h-full object-cover"
                   />
@@ -177,7 +178,7 @@ export const HomeownerHealthPage: React.FC<PageProps> = () => {
 
                 <div className="rounded-xl overflow-hidden aspect-[16/9] border border-navy-100 shadow-2xs">
                   <img
-                    src="./images/crawl-space-inspection.jpg"
+                    src={getAssetUrl('images/crawl-space-inspection.jpg')}
                     alt="Sealed crawl space encapsulation with clean vapor barrier"
                     className="w-full h-full object-cover"
                   />

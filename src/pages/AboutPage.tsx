@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Phone, CheckCircle2 } from 'lucide-react';
 import { SITE_METADATA } from '../data/content';
 import { RoutePath } from '../types';
+import { getAssetUrl } from '../utils/assets';
 
 interface PageProps {
   onNavigate: (path: RoutePath, hash?: string) => void;
@@ -28,7 +29,7 @@ export const AboutPage: React.FC<PageProps> = ({ onRequestAssessment }) => {
           <div className="md:col-span-5">
             <div className="rounded-2xl overflow-hidden shadow-soft border border-navy-100 bg-white max-w-sm mx-auto">
               <img
-                src="./images/don-helvey.jpg?v=2"
+                src={getAssetUrl('images/don-helvey.jpg')}
                 alt="Don Helvey"
                 className="w-full aspect-square object-cover object-top block"
               />

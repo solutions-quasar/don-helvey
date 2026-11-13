@@ -15,6 +15,19 @@ import { HomeownerHealthPage } from './pages/HomeownerHealthPage';
 import { AdminErpPage } from './pages/AdminErpPage';
 import { SITE_METADATA } from './data/content';
 
+// Helper to determine the repository base path on GitHub Pages
+const getBasePath = (): string => {
+  if (typeof window !== 'undefined') {
+    if (window.location.hostname.endsWith('github.io')) {
+      return '/don-helvey';
+    }
+    if (window.location.pathname.startsWith('/don-helvey')) {
+      return '/don-helvey';
+    }
+  }
+  return '';
+};
+
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState<RoutePath>('/');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,19 +38,28 @@ export const App: React.FC = () => {
     const parseLocation = () => {
       const urlParams = new URLSearchParams(window.location.search);
       const redirectPath = urlParams.get('p');
+      const basePath = getBasePath();
 
       if (redirectPath) {
-        // Clean up URL without query parameter
-        const cleanPath = redirectPath.startsWith('/') ? redirectPath : `/${redirectPath}`;
-        window.history.replaceState(null, '', cleanPath + window.location.hash);
-        setCurrentPath(cleanPath as RoutePath);
+        // Clean up URL without query parameter, keeping repository basePath
+        let cleanPath = redirectPath.startsWith('/') ? redirectPath : `/${redirectPath}`;
+        if (!cleanPath.endsWith('/')) {
+          cleanPath = `${cleanPath}/`;
+        }
+        const normalizedTarget = `${basePath}${cleanPath}${window.location.hash}`;
+        window.history.replaceState(null, '', normalizedTarget);
+        if (['/', '/mold-remediation/', '/mold-inspection/', '/crawl-space-moisture/', '/about/', '/contact/', '/realtor-closing-protection/', '/homeowner-mold-health/', '/admin/'].includes(cleanPath)) {
+          setCurrentPath(cleanPath as RoutePath);
+        } else {
+          setCurrentPath('/');
+        }
         return;
       }
 
       // Standard pathname detection relative to base
       let pathname = window.location.pathname;
       // Strip repo name if hosted under solutions-quasar.github.io/don-helvey/
-      if (pathname.includes('/don-helvey/')) {
+      if (pathname.includes('/don-helvey')) {
         pathname = pathname.replace('/don-helvey', '');
       }
 
@@ -66,8 +88,8 @@ export const App: React.FC = () => {
   const handleNavigate = (path: RoutePath, hash?: string) => {
     setCurrentPath(path);
 
-    // Update browser URL
-    const basePath = window.location.pathname.includes('/don-helvey') ? '/don-helvey' : '';
+    // Update browser URL preserving GitHub Pages repo basePath
+    const basePath = getBasePath();
     const targetUrl = `${basePath}${path}${hash || ''}`;
     window.history.pushState(null, '', targetUrl);
 

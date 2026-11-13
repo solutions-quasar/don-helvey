@@ -3,6 +3,7 @@ import { Phone, ShieldCheck, CheckCircle2, AlertTriangle, FileText, ArrowRight, 
 import { SITE_METADATA } from '../data/content';
 import { RoutePath } from '../types';
 import { submitContactForm } from '../utils/security';
+import { getAssetUrl } from '../utils/assets';
 
 interface PageProps {
   onNavigate: (path: RoutePath, hash?: string) => void;
@@ -99,7 +100,7 @@ export const RealtorClosingProtectionPage: React.FC<PageProps> = () => {
             <div className="lg:col-span-5">
               <div className="relative mx-auto max-w-sm rounded-2xl overflow-hidden bg-navy-900 border-2 border-gold-400/40 shadow-2xl group">
                 <img
-                  src="./images/don-helvey.jpg"
+                  src={getAssetUrl('images/don-helvey.jpg')}
                   alt="Don Helvey, Licensed Georgia Real Estate Broker & Certified Mold Remediator"
                   className="w-full aspect-[4/5] object-cover object-top"
                 />
@@ -140,7 +141,7 @@ export const RealtorClosingProtectionPage: React.FC<PageProps> = () => {
 
                 <div className="rounded-xl overflow-hidden aspect-[16/9] border border-navy-100 shadow-2xs my-2">
                   <img
-                    src="./images/pre-sale-home-walkthrough.jpg"
+                    src={getAssetUrl('images/pre-sale-home-walkthrough.jpg')}
                     alt="Pre-sale real estate inspection walkthrough"
                     className="w-full h-full object-cover"
                   />
@@ -177,7 +178,7 @@ export const RealtorClosingProtectionPage: React.FC<PageProps> = () => {
 
                 <div className="rounded-xl overflow-hidden aspect-[16/9] border border-navy-100 shadow-2xs">
                   <img
-                    src="./images/moisture-meter-wall.jpg"
+                    src={getAssetUrl('images/moisture-meter-wall.jpg')}
                     alt="Calibrated diagnostic moisture meter testing on building materials"
                     className="w-full h-full object-cover"
                   />

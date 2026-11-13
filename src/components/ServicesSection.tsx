@@ -2,6 +2,7 @@ import React from 'react';
 import { SearchCheck, ShieldAlert, Home, Droplets, FileCheck2, ArrowRight } from 'lucide-react';
 import { PRIMARY_SERVICES } from '../data/content';
 import { RoutePath } from '../types';
+import { getAssetUrl } from '../utils/assets';
 
 interface ServicesSectionProps {
   onNavigate: (path: RoutePath) => void;
@@ -29,17 +30,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onNavigate }) 
   const getServiceImage = (id: string) => {
     switch (id) {
       case 'mold-assessment':
-        return './images/remediation-service.jpg';
+        return getAssetUrl('images/remediation-service.jpg');
       case 'mold-remediation':
-        return './images/hepa-remediation-equipment.jpg';
+        return getAssetUrl('images/hepa-remediation-equipment.jpg');
       case 'crawl-space-moisture':
-        return './images/crawl-space-inspection.jpg';
+        return getAssetUrl('images/crawl-space-inspection.jpg');
       case 'water-damage-restoration':
-        return './images/water-restoration-drying.jpg';
+        return getAssetUrl('images/water-restoration-drying.jpg');
       case 'pre-sale-concerns':
-        return './images/property-exterior.jpg';
+        return getAssetUrl('images/property-exterior.jpg');
       default:
-        return './images/property-exterior.jpg';
+        return getAssetUrl('images/property-exterior.jpg');
     }
   };
 

@@ -110,18 +110,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onReque
             </div>
 
             <button
-              onClick={() => handleNavClick('/realtor-closing-protection/')}
-              className={`text-sm font-semibold whitespace-nowrap transition-colors hover:text-forest-600 flex items-center gap-1.5 ${
-                currentPath === '/realtor-closing-protection/' ? 'text-forest-600' : 'text-navy-900'
-              }`}
-            >
-              <span>For Realtors</span>
-              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-gold-500/20 text-gold-700 border border-gold-400/40">
-                Closing Help
-              </span>
-            </button>
-
-            <button
               onClick={() => handleNavClick('/about/')}
               className={`text-sm font-semibold whitespace-nowrap transition-colors hover:text-forest-600 ${
                 currentPath === '/about/' ? 'text-forest-600' : 'text-navy-800'
@@ -221,15 +209,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onReque
             <span>Family Health & Air Quality</span>
             <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-forest-100 text-forest-800">
               Homeowner
-            </span>
-          </button>
-          <button
-            onClick={() => handleNavClick('/realtor-closing-protection/')}
-            className="w-full text-left py-2.5 px-3 rounded-lg text-base font-medium text-navy-800 hover:bg-forest-50 flex items-center justify-between"
-          >
-            <span>For Realtors & Brokers</span>
-            <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-gold-500/20 text-gold-700 border border-gold-400/40">
-              Closing Help
             </span>
           </button>
           <button

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Phone, CheckCircle2 } from 'lucide-react';
 import { SITE_METADATA } from '../data/content';
 import { RoutePath } from '../types';
+import { getAssetUrl } from '../utils/assets';
 
 interface PageProps {
   onNavigate: (path: RoutePath, hash?: string) => void;
@@ -33,7 +34,7 @@ export const MoldRemediationPage: React.FC<PageProps> = ({ onRequestAssessment }
 
         <div className="rounded-2xl overflow-hidden shadow-soft border border-navy-100 mb-12 aspect-[16/9]">
           <img
-            src="./images/remediation-service.jpg"
+            src={getAssetUrl('images/remediation-service.jpg')}
             alt="Mold remediation consultation"
             className="w-full h-full object-cover"
           />

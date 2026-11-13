@@ -2,6 +2,7 @@ import React from 'react';
 import { Phone, CalendarCheck, CheckCircle2 } from 'lucide-react';
 import { SITE_METADATA } from '../data/content';
 import { GeorgiaFlag } from './GeorgiaFlag';
+import { getAssetUrl } from '../utils/assets';
 
 interface HeroProps {
   onTalkToDon: () => void;
@@ -16,13 +17,13 @@ export const Hero: React.FC<HeroProps> = ({ onTalkToDon, onRequestAssessment }) 
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Mobile & Tablet Vertical Portrait Background */}
         <img
-          src="./images/don-helvey-hero-mobile.jpg?v=2"
+          src={getAssetUrl('images/don-helvey-hero-mobile.jpg?v=2')}
           alt="Don Helvey — Property & Mold Remediation Specialist"
           className="lg:hidden w-full h-full object-cover object-[center_8%] translate-x-[9%] sm:translate-x-0 scale-[1.02] sm:scale-100"
         />
         {/* Desktop Widescreen 16:9 Background */}
         <img
-          src="./images/don-helvey-hero-banner.jpg?v=2"
+          src={getAssetUrl('images/don-helvey-hero-banner.jpg?v=2')}
           alt="Don Helvey — Property & Mold Remediation Specialist"
           className="hidden lg:block w-full h-full object-cover object-[center_22%]"
         />
